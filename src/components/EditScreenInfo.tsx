@@ -5,7 +5,7 @@ import { ExternalLink } from './ExternalLink';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
-import Colors from '@/constants/Colors';
+import Colors from '../constants/Colors';
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
@@ -16,6 +16,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
           Open up the code for this screen:
+          Hello souptik
         </Text>
 
         <View
