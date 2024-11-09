@@ -18,7 +18,7 @@ export default function OrderListNavigator() {
       <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }} edges={['top']}>
         <TopTab.Navigator>
           <TopTab.Screen name="index" component={ActiveOrdersScreen} options={{ title: 'Active' }} />
-          <TopTab.Screen name="another" component={ArchiveOrdersScreen} options={{ title: 'Another Screen' }} />
+          <TopTab.Screen name="another" component={ArchiveOrdersScreen} options={{ title: 'Archive' }} />
         </TopTab.Navigator>
       </SafeAreaView>
     </NavigationContainer>
