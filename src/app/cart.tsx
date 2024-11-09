@@ -6,7 +6,7 @@ import CartListItem from '../components/CartListItem';
 import Button from '../components/Button';
 
 const CartScreen = () => {
-  const { items, total } = useCart();
+  const { items, total , checkout } = useCart();
 
   if (items.length === 0) {
     return (
@@ -29,7 +29,7 @@ const CartScreen = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button text='Checkout' />
+        <Button text='Checkout' onPress={checkout} />
       </View>
 
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />

@@ -1,19 +1,33 @@
 import OrderItemListItem from '@/components/OrderItemListItem';
 import OrderListItem from '@/components/OrderListItem';
-import orders from '@/assets/data/orders';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { FlatList, Pressable, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native';
 import { OrderStatusList } from '@/src/types/types';
 import Colors from '@/src/constants/Colors';
 import React from 'react';
+import { useOrderDetails, useUpdateOrder } from '@/src/api/orders';
 
 export default function OrderDetailsScreen() {
-  const { id } = useLocalSearchParams();
+  const { id: idString } = useLocalSearchParams();
+  const id = parseFloat(typeof idString === 'string' ? idString : idString[0]);
 
-  const order = orders.find((o) => o.id.toString() === id);
+  const { data: order, isLoading, error } = useOrderDetails(id);
+  const {mutate: updateOrder} = useUpdateOrder()
 
+  const updateStatus = (status)=>{
+    updateOrder({id:id , updatedFields: {status}})
+  }
+
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
+  if (error) {
+    return <Text>Failed to fetch</Text>;
+  }
+
+  // Early return if order is undefined
   if (!order) {
-    return <Text>Not found</Text>;
+    return <Text>Order not found</Text>; // Render this message if order is undefined
   }
 
   return (
@@ -21,7 +35,7 @@ export default function OrderDetailsScreen() {
       <Stack.Screen options={{ title: `Order #${id}` }} />
 
       <FlatList
-        data={order.order_items}
+        data={order.order_item}
         renderItem={({ item }) => <OrderItemListItem item={item} />}
         contentContainerStyle={{ gap: 10 }}
         ListHeaderComponent={() => <OrderListItem order={order} />}
@@ -32,7 +46,7 @@ export default function OrderDetailsScreen() {
               {OrderStatusList.map((status) => (
                 <Pressable
                   key={status}
-                  onPress={() => console.warn('Update status')}
+                  onPress={()=> updateStatus(status)}
                   style={{
                     borderColor: Colors.light.tint,
                     borderWidth: 1,
@@ -47,8 +61,7 @@ export default function OrderDetailsScreen() {
                 >
                   <Text
                     style={{
-                      color:
-                        order.status === status ? 'white' : Colors.light.tint,
+                      color: order.status === status ? 'white' : Colors.light.tint,
                     }}
                   >
                     {status}
@@ -57,7 +70,6 @@ export default function OrderDetailsScreen() {
               ))}
             </View>
           </>
-
         )}
       />
     </View>

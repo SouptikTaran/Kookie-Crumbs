@@ -1,11 +1,23 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import React from 'react';
-import { Order} from '@/src/types/types';
+import { Order, Tables } from '@/src/types/types';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import dayjs from 'dayjs';
 import { Link, useSegments } from 'expo-router';
 
 dayjs.extend(relativeTime);
+
+type Order = {
+  created_at: string;
+  id: number;
+  status: string;
+  total: number;
+  user_id: string | null; // Allow null here
+};
+
+type OrderListItemProps = {
+  order: Order;
+};
 
 const OrderListItem = ({ order }: any) => {
   const segments = useSegments();
