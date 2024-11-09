@@ -1,6 +1,6 @@
 import { View, Image, Text, StyleSheet, Pressable } from "react-native";
 import Colors from "../constants/Colors";
-import { Product } from '@/src/types/types';
+import { Product, Tables } from '@/src/types/types';
 import { Link, useSegments } from "expo-router";
 
 export const defaultPizzaImage = 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/default.png';
@@ -8,7 +8,7 @@ export const defaultPizzaImage = 'https://notjustdev-dummy.s3.us-east-2.amazonaw
 
 
 type ProductListItemProps = {
-    product: Product
+    product: Tables<'products'>
 }
 
 

@@ -57,6 +57,7 @@ const CreateProductScreen = () => {
   const onSubmit = () => {
     if (isUpdating) {
       onUpdate()
+      
     } else {
       onCreate()
     }
@@ -81,7 +82,7 @@ const CreateProductScreen = () => {
     if (!validateInput()) {
       return;
     }
-    updateProduct({ id, name, price: parseFloat(price), image }.{
+    updateProduct({ id, name, price: parseFloat(price), image },{
       onSuccess: () => {
         resetFields()
         router.back()
