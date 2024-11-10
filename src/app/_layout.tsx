@@ -5,7 +5,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
+import { StripeProvider } from '@stripe/stripe-react-native';
 import { useColorScheme } from '../components/useColorScheme';
 import CartProvider from '../providers/CartProvider';
 import AuthProvider from '../providers/AuthProvider';
@@ -54,6 +54,7 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <StripeProvider publishableKey={process.env.EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""}>
       <AuthProvider>
         <QueryProvider>
           <CartProvider>
@@ -66,6 +67,7 @@ function RootLayoutNav() {
           </CartProvider>
         </QueryProvider>
       </AuthProvider>
+      </StripeProvider>
     </ThemeProvider>
   );
 }
