@@ -8,10 +8,11 @@ import { useAuth } from '@/src/providers/AuthProvider';
 const ProfileScreen = () => {
   const {handleSignOut , session} = useAuth()
   const [user, setUser] = useState({
-    username: `${session?.user?.user_metadata.full_name}`,
-    email: `${session?.user.email}`,
-    profilePicture: `https://avatar.iran.liara.run/username?username=${session?.user?.user_metadata.full_name}`, // Remote image or use a default one
-  });
+    username: session?.user?.user_metadata?.full_name ? session.user.user_metadata.full_name : "Customer",
+    email: `${session?.user?.email || ''}`, // Add a fallback if email might be undefined
+    profilePicture: `https://avatar.iran.liara.run/username?username=${session?.user?.user_metadata?.full_name || 'default'}`, // Add a fallback value here as well
+});
+
   
 
 
