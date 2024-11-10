@@ -2,6 +2,7 @@ import { Text, FlatList, ActivityIndicator } from 'react-native';
 import OrderListItem from '@/components/OrderListItem';
 import { useAdminOrderList } from '@/src/api/orders';
 import { useInsertOrderSubscription } from '@/src/api/orders/subscriptions';
+import Loader from '@/src/components/Loader';
 
 export default function OrdersScreen() {
   const {
@@ -13,7 +14,7 @@ export default function OrdersScreen() {
   useInsertOrderSubscription();
 
   if (isLoading) {
-    return <ActivityIndicator />;
+    return <Loader />;
   }
   if (error) {
     return <Text>Failed to fetch</Text>;

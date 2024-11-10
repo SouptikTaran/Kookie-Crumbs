@@ -65,7 +65,6 @@ export const useInsertOrder = () => {
   const queryClient = useQueryClient();
   const { session } = useAuth();
   const userId = session?.user.id;
-
   return useMutation({
     async mutationFn(data: InsertTables<'orders'>) {
       const { error, data: newProduct } = await supabase
@@ -73,7 +72,7 @@ export const useInsertOrder = () => {
         .insert({ ...data, user_id: userId })
         .select()
         .single();
-
+        console.log(error)
       if (error) {
         throw new Error(error.message);
       }

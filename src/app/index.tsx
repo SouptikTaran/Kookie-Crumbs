@@ -17,15 +17,16 @@ const index = () => {
     return <Redirect href={'/sign-in'} />
   }
 
+
   if(!isAdmin){
     return <Redirect href={'/(user)'} />
   }
   return (
     <View style={{ flex: 1, justifyContent: 'center', padding: 10 }}>
-      <Link href={'/(user)'} asChild>
+      <Link href={'/(user)/menu'} asChild>
         <Button text="User" />
       </Link>
-      <Link href={'/(admin)'} asChild>
+      <Link href={'/(admin)/menu'} asChild>
         <Button text="Admin" />
       </Link>
       <Button text='Signout' onPress={() => supabase.auth.signOut()}  />

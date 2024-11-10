@@ -19,8 +19,8 @@ function TabBarIcon(props: {
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
-  const {isAdmin} = useAuth() ;
-  if(!isAdmin){
+  const { isAdmin } = useAuth();
+  if (!isAdmin) {
     return <Redirect href={'/'} />
   }
 
@@ -29,7 +29,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors.light.background,
         tabBarInactiveTintColor: 'gainsboro',
-        tabBarStyle:{
+        tabBarStyle: {
           backgroundColor: Colors.light.tint,
         },
         headerShown: useClientOnlyValue(false, true),
@@ -43,7 +43,7 @@ export default function TabLayout() {
           title: 'Menu',
           headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="cutlery" color={color} />,
-         
+
         }}
       />
       <Tabs.Screen
@@ -52,6 +52,15 @@ export default function TabLayout() {
           title: 'Orders',
           headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
+        }}
+      />
+
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          headerShown: true,
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
     </Tabs>

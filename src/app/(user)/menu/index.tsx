@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import ProductListItem from '@/src/components/ProductListItem';
 import { ActivityIndicator } from 'react-native';
 import { useProductList } from '@/src/api/products';
+import Loader from '@/src/components/Loader';
 
 
 
@@ -9,7 +10,7 @@ export default function MenuScreen() {
   const { data: products, error, isLoading }:any = useProductList();  
   
   if(isLoading){
-    return <ActivityIndicator />
+    return <Loader />
   }
 
   if(error){

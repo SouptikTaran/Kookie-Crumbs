@@ -1,28 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { supabase } from '@/src/lib/supabase';
-import { Redirect, router } from 'expo-router';
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
+import { useRouter } from 'expo-router';
 import { useAuth } from '@/src/providers/AuthProvider';
 
-
 const ProfileScreen = () => {
-  const {handleSignOut , session} = useAuth()
+
+  const {handleSignOut} = useAuth()
   const [user, setUser] = useState({
-    username: `${session?.user?.user_metadata.full_name}`,
-    email: `${session?.user.email}`,
-    profilePicture: `https://avatar.iran.liara.run/username?username=${session?.user?.user_metadata.full_name}`, // Remote image or use a default one
+    username: 'Admin',
+    email: 'admin@gmail.com',
+    profilePicture: 'https://avatar.iran.liara.run/public', // Remote image or use a default one
   });
-  
-
-
-  // If user is null, show a different screen or message
-  if (!user) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.signOutMessage}>You have signed out successfully.</Text>
-      </View>
-    );
-  }
+  const router = useRouter()
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -43,6 +34,8 @@ const ProfileScreen = () => {
       >
         <Text style={styles.signOutButtonText}>Sign Out</Text>
       </TouchableOpacity>
+
+
     </ScrollView>
   );
 };
@@ -97,9 +90,22 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
   },
-  signOutMessage: {
-    fontSize: 18,
-    color: '#666',
+  goHomeButton: {
+    backgroundColor: '#34D399',
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    borderRadius: 50,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 6,
+    marginTop: 16,
+  },
+  goHomeButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
     textAlign: 'center',
   },
 });

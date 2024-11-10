@@ -1,6 +1,7 @@
 import { Text, FlatList, ActivityIndicator } from 'react-native';
 import OrderListItem from '@/components/OrderListItem';
 import { useAdminOrderList } from '@/src/api/orders';
+import Loader from '@/src/components/Loader';
 
 export default function ArchiveOrdersScreen() {
     const {
@@ -11,7 +12,7 @@ export default function ArchiveOrdersScreen() {
     
     
       if (isLoading) {
-        return <ActivityIndicator />;
+        return <Loader />;
       }
       if (error) {
         return <Text>Failed to fetch</Text>;

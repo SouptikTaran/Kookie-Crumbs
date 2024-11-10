@@ -4,6 +4,7 @@ import OrderListItem from '@/components/OrderListItem';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 import { useUpdateOrderSubscription } from '@/src/api/orders/subscriptions';
+import Loader from '@/src/components/Loader';
 
 export default function OrderDetailsScreen() {
   const { id: idString } = useLocalSearchParams();
@@ -13,7 +14,7 @@ export default function OrderDetailsScreen() {
   useUpdateOrderSubscription(id);
 
   if (isLoading) {
-    return <ActivityIndicator />;
+    return <Loader />;
   }
   if (error) {
     return <Text>Failed to fetch</Text>;

@@ -3,9 +3,11 @@ import OrderListItem from '@/components/OrderListItem';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native';
 import { OrderStatusList } from '@/src/types/types';
+import { notifyUserAboutOrderUpdate } from '@/src/lib/notification';
 import Colors from '@/src/constants/Colors';
 import React from 'react';
 import { useOrderDetails, useUpdateOrder } from '@/src/api/orders';
+import Loader from '@/src/components/Loader';
 
 export default function OrderDetailsScreen() {
   const { id: idString } = useLocalSearchParams();
@@ -14,12 +16,18 @@ export default function OrderDetailsScreen() {
   const { data: order, isLoading, error } = useOrderDetails(id);
   const {mutate: updateOrder} = useUpdateOrder()
 
-  const updateStatus = (status)=>{
-    updateOrder({id:id , updatedFields: {status}})
-  }
+  const updateStatus = async (status: string) => {
+    await updateOrder({
+      id: id,
+      updatedFields: { status },
+    });
+    if (order) {
+      await notifyUserAboutOrderUpdate({ ...order, status });
+    }
+  };
 
   if (isLoading) {
-    return <ActivityIndicator />;
+    return <Loader />;
   }
   if (error) {
     return <Text>Failed to fetch</Text>;

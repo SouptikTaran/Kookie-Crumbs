@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "FoodOrdering",
+    "name": "Kookie Foos",
     "slug": "FoodOrdering",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.devsouptik.FoodOrdering"
     },
     "web": {
       "bundler": "metro",
@@ -33,6 +34,14 @@
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4173d274-cc70-45ce-b49f-08b90512de33"
+      }
     }
   }
 }

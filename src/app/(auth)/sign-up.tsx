@@ -7,15 +7,23 @@ import { supabase } from '@/src/lib/supabase';
 import { FontAwesome } from '@expo/vector-icons';
 
 const SignUpScreen = () => {
+    const [username, setUsername] = useState(''); // State for first name
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-    const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
-
+    const [passwordVisible, setPasswordVisible] = useState(false);
 
     async function signUpWithEmail() {
         setLoading(true);
-        const { error } = await supabase.auth.signUp({ email, password });
+        const { error } = await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+                data: {
+                    full_name: username, 
+                },
+            },
+        });
 
         if (error) Alert.alert(error.message);
         setLoading(false);
@@ -24,6 +32,14 @@ const SignUpScreen = () => {
     return (
         <View style={styles.container}>
             <Stack.Screen options={{ title: 'Sign up' }} />
+
+            <Text style={styles.label}>Username</Text>
+            <TextInput
+                value={username}
+                onChangeText={setUsername}
+                placeholder="John"
+                style={styles.input}
+            />
 
             <Text style={styles.label}>Email</Text>
             <TextInput
@@ -40,7 +56,7 @@ const SignUpScreen = () => {
                     onChangeText={setPassword}
                     placeholder="* * * * * "
                     style={styles.passInput}
-                    secureTextEntry={!passwordVisible} // Toggle password visibility based on the state
+                    secureTextEntry={!passwordVisible}
                 />
                 <TouchableOpacity onPress={() => setPasswordVisible(!passwordVisible)} style={styles.eyeIcon}>
                     <FontAwesome name={passwordVisible ? 'eye' : 'eye-slash'} size={24} color="gray" />
@@ -102,7 +118,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 10,
         top: '50%',
-        transform: [{ translateY: -20 }], // Adjust to vertically center the icon
+        transform: [{ translateY: -20 }],
     },
 });
 
