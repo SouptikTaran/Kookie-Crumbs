@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import { supabase } from '@/src/lib/supabase';
 import { Redirect, router } from 'expo-router';
 import { useAuth } from '@/src/providers/AuthProvider';
 
 
 const ProfileScreen = () => {
-  const {handleSignOut , session} = useAuth()
+  const { handleSignOut, session } = useAuth()
   const [user, setUser] = useState({
     username: session?.user?.user_metadata?.full_name ? session.user.user_metadata.full_name : "Customer",
     email: `${session?.user?.email || ''}`, // Add a fallback if email might be undefined
     profilePicture: `https://avatar.iran.liara.run/username?username=${session?.user?.user_metadata?.full_name || 'default'}`, // Add a fallback value here as well
-});
+  });
 
-  
+  const confirmSignOut = () => {
+    Alert.alert(
+      'Log Out',
+      'Do you wish to log out?',
+      [
+        { text: 'No', style: 'cancel' },
+        { text: 'Yes', onPress: handleSignOut },
+      ],
+      { cancelable: true }
+    );
+  };
+
 
 
   // If user is null, show a different screen or message
@@ -39,7 +50,7 @@ const ProfileScreen = () => {
 
       {/* Sign Out Button */}
       <TouchableOpacity
-        onPress={handleSignOut}
+        onPress={confirmSignOut}
         style={styles.signOutButton}
       >
         <Text style={styles.signOutButtonText}>Sign Out</Text>

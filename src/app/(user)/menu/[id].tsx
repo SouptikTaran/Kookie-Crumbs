@@ -110,6 +110,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import Colors from '@/src/constants/Colors';
 import { useProduct } from '@/src/api/products';
 import RemoteImage from '@/src/components/RemoteImage';
+import Loader from '@/src/components/Loader';
 
 const sizes: PizzaSize[] = ['S', 'M', 'L', 'XL'];
 
@@ -133,7 +134,7 @@ const ProductDetailsScreen = () => {
   }
 
   if (!product) {
-    return <Text style={styles.errorText}>Loading...</Text>;
+    return <Loader />
   }
 
   return (

@@ -32,7 +32,6 @@ export default function AuthProvider({ children }: PropsWithChildren) {
   const router = useRouter()
   // Define handleSignOut function outside useEffect
   const handleSignOut = async () => {
-    console.log("YES")
     await supabase.auth.signOut();
     setSession(null); // Clear session in state
     setProfile(null); // Clear profile in state

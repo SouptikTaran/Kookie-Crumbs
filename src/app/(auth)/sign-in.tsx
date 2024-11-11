@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     color: 'gray',
     textAlign: 'center',
     marginBottom: 20,
+    marginLeft: -10,
   },
   label: {
     color: 'gray',
