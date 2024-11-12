@@ -49,35 +49,95 @@ Here are some screenshots of the app's functionality:
 
 ### Sign in / Sign up
 
-- **Sign Up**: 
-    ![Sign Up](./images/sign%20up%20screen.jpg)
+<table>
+  <tr>
+    <td align="center">
+      <p><strong>Sign Up</strong></p>
+      <img src="./images/sign%20up%20screen.jpg" alt="Sign Up" width="300"/>
+    </td>
+    <td align="center">
+      <p><strong>Sign In</strong></p>
+      <img src="./images/sign%20in%20screen.jpg" alt="Sign In" width="300"/>
+    </td>
+  </tr>
+</table>
 
 
-- **Sign In**: 
-    ![Sign In](./images/sign%20in%20screen.jpg)
 
 ### User Side
 - **Food Menu**: Browse available food items and place orders.
-  ![User Profile](./images/user%20profile.jpg)
-  ![Food Menu](./images/Menu%20screen.jpg)
-  ![Item](./images/user%20item%20screen.jpg)
-  ![Cart](./images//user%20cart.jpg)
+<table>
+  <tr>
+    <td align="center">
+      <p><strong>User Profile</strong></p>
+      <img src="./images/user%20profile.jpg" alt="User Profile" width="200"/>
+    </td>
+    <td align="center">
+      <p><strong>Food Menu</strong></p>
+      <img src="./images/Menu%20screen.jpg" alt="Food Menu" width="200"/>
+    </td>
+    <td align="center">
+      <p><strong>Item</strong></p>
+      <img src="./images/user%20item%20screen.jpg" alt="Item" width="200"/>
+    </td>
+    <td align="center">
+      <p><strong>Cart</strong></p>
+      <img src="./images/user%20cart.jpg" alt="Cart" width="200"/>
+    </td>
+  </tr>
+</table>
 
+
+### User Side
 - **Order Status**: Track the status of your order in real-time.
 
-  ![Order Status](./images/user%20ordered.jpg)
+<table>
+  <tr>
+    <td align="center">
+      <p><strong>Order Status</strong></p>
+      <img src="./images/user%20ordered.jpg" alt="Order Status" width="200"/>
+    </td>
+  </tr>
+</table>
+
 ### Admin Side
 - **Admin Dashboard**: View and manage all orders.
 
-  ![Admin Dashboard](./images/admin%20screen.jpg)
-  ![Admin Menu](./images/admin%20menu.jpg)
+<table>
+  <tr>
+    <td align="center">
+      <p><strong>Admin Dashboard</strong></p>
+      <img src="./images/admin%20screen.jpg" alt="Admin Dashboard" width="200"/>
+    </td>
+    <td align="center">
+      <p><strong>Admin Menu</strong></p>
+      <img src="./images/admin%20menu.jpg" alt="Admin Menu" width="200"/>
+    </td>
+  </tr>
+</table>
 
 - **Manage Food Items**: Add or edit food items available for users.
 
-  ![Food item](./images/admin%20edit%20order.jpg)
-  ![Food item edit](./images/admin%20order%20update.jpg)
-  ![Admin Order Side](./images/admin%20order%20side.jpg)
-  ![Admin order status](./images/admin%20order%20status.jpg)
+<table>
+  <tr>
+    <td align="center">
+      <p><strong>Food Item</strong></p>
+      <img src="./images/admin%20edit%20order.jpg" alt="Food item" width="200"/>
+    </td>
+    <td align="center">
+      <p><strong>Food Item Edit</strong></p>
+      <img src="./images/admin%20order%20update.jpg" alt="Food item edit" width="200"/>
+    </td>
+    <td align="center">
+      <p><strong>Admin Order Side</strong></p>
+      <img src="./images/admin%20order%20side.jpg" alt="Admin Order Side" width="200"/>
+    </td>
+    <td align="center">
+      <p><strong>Admin Order Status</strong></p>
+      <img src="./images/admin%20order%20status.jpg" alt="Admin order status" width="200"/>
+    </td>
+  </tr>
+</table>
 
 ## Installation
 
