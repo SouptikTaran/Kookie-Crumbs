@@ -47,8 +47,9 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarStyle: styles.tabBar,
-        tabBarActiveTintColor: Colors.light.tint,
-        tabBarInactiveTintColor: '#8e8e8e',
+        tabBarActiveTintColor: Colors.
+        light.tint,
+        tabBarInactiveTintColor: '#FFFFFF',
         tabBarLabelStyle: styles.tabLabel,
         tabBarIconStyle: styles.tabIcon,
       }}
@@ -93,7 +94,7 @@ export default function TabLayout() {
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: Colors.light.background,
+    backgroundColor: '#87CEEB',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     elevation: 5, // for shadow on Android

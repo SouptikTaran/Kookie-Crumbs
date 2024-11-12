@@ -46,23 +46,38 @@ A real-time food ordering app built with Expo and Supabase. The app features two
 
 Here are some screenshots of the app's functionality:
 
+
+### Sign in / Sign up
+
+- **Sign Up**: 
+    ![Sign Up](./images/sign%20up%20screen.jpg)
+
+
+- **Sign In**: 
+    ![Sign In](./images/sign%20in%20screen.jpg)
+
 ### User Side
 - **Food Menu**: Browse available food items and place orders.
-
-  ![Food Menu](path-to-food-menu-image)
+  ![User Profile](./images/user%20profile.jpg)
+  ![Food Menu](./images/Menu%20screen.jpg)
+  ![Item](./images/user%20item%20screen.jpg)
+  ![Cart](./images//user%20cart.jpg)
 
 - **Order Status**: Track the status of your order in real-time.
 
-  ![Order Status](path-to-order-status-image)
-
+  ![Order Status](./images/user%20ordered.jpg)
 ### Admin Side
 - **Admin Dashboard**: View and manage all orders.
 
-  ![Admin Dashboard](path-to-admin-dashboard-image)
+  ![Admin Dashboard](./images/admin%20screen.jpg)
+  ![Admin Menu](./images/admin%20menu.jpg)
 
 - **Manage Food Items**: Add or edit food items available for users.
 
-  ![Manage Food Items](path-to-manage-food-items-image)
+  ![Food item](./images/admin%20edit%20order.jpg)
+  ![Food item edit](./images/admin%20order%20update.jpg)
+  ![Admin Order Side](./images/admin%20order%20side.jpg)
+  ![Admin order status](./images/admin%20order%20status.jpg)
 
 ## Installation
 
