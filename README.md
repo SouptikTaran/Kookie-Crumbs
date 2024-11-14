@@ -136,6 +136,10 @@ Here are some screenshots of the app's functionality:
       <p><strong>Admin Order Status</strong></p>
       <img src="./images/admin%20order%20status.jpg" alt="Admin order status" width="200"/>
     </td>
+    <td>
+      <p><strong>Realtime Order</strong></p>
+      <video>
+    </td>
   </tr>
 </table>
 
