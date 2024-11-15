@@ -136,13 +136,18 @@ Here are some screenshots of the app's functionality:
       <p><strong>Admin Order Status</strong></p>
       <img src="./images/admin%20order%20status.jpg" alt="Admin order status" width="200"/>
     </td>
-    <td>
-      <p><strong>Realtime Order</strong></p>
-      <video>
-    </td>
   </tr>
 </table>
 
+
+<table>
+  <tr>
+    <td align="center">
+      <p><strong>Realtime Order</strong></p>
+      <img src="./images/Test.gif" alt="Realtime Order" width="1000"/>
+    </td>
+  </tr>
+</table>
 ## Installation
 
  1. Install my-project with npm
